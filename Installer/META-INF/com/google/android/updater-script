@@ -82,7 +82,7 @@ endif;
 if file_getprop("/tmp/aroma/bloatware.prop", "item.1.9") == "1" then
 	ui_print("Removing GoogleTTS...");
 	run_program("/sbin/busybox", "mv", "/system/app/GoogleTTS", "/system/__Backup/system_app");
-	
+
 	# TTS files
 	run_program("/sbin/busybox", "mv", "/system/tts", "/system/__Backup/");
 endif;
@@ -640,21 +640,21 @@ if file_getprop("/tmp/aroma/bloatware_other.prop", "item.1.1") == "1" then
 	ui_print("Removing gallery files...");
 	run_program("/sbin/busybox", "mv", "/system/media/gallery", "/system/__Backup/media");
 	run_program("/sbin/busybox", "mkdir", "/system/media/gallery");
-endif;	
+endif;
 
 # Ringtone files
 if file_getprop("/tmp/aroma/bloatware_other.prop", "item.1.2") == "1" then
 	ui_print("Removing ringtones...");
 	run_program("/sbin/busybox", "mv", "/system/media/audio/ringtones", "/system/__Backup/media/audio");
 	run_program("/sbin/busybox", "mkdir", "/system/media/audio/ringtones");
-endif;	
+endif;
 
 # Notifications audio files
 if file_getprop("/tmp/aroma/bloatware_other.prop", "item.1.3") == "1" then
 	ui_print("Removing notifications audio files...");
 	run_program("/sbin/busybox", "mv", "/system/media/audio/notifications", "/system/__Backup/media/audio");
 	run_program("/sbin/busybox", "mkdir", "/system/media/audio/notifications");
-endif;	
+endif;
 
 
 
@@ -669,6 +669,15 @@ run_program("/sbin/sleep", "2");
 #Installing system
 package_extract_dir("system", "/system");
 
+# Other customization
+if file_getprop("/tmp/aroma/custom_other.prop", "item.1.1") == "1" then
+	ui_print("Setting DPI..");
+	run_program("/sbin/busybox", "sed", "-i", "/^ro.sf.lcd_density=/c\\ro.sf.lcd_density=540", "/system/build.prop");
+endif;
+if file_getprop("/tmp/aroma/custom_other.prop", "item.1.2") == "1" then
+	ui_print("Setting lge.adoptable_storage..");
+	run_program("/sbin/busybox", "sed", "-i", "/^ro.lge.adoptable_storage=/c\\ro.lge.adoptable_storage=true", "/system/build.prop");
+endif;
 
 #Installing NFCMod
 unmount("/system");
@@ -682,18 +691,18 @@ run_program("/sbin/busybox", "mount", "/system");
 	  ui_print("Installing NFC screen off mod...");
 	  package_extract_file("mods/LgNfc_screenoff/LgNfc.apk", "/tmp/LgNfc.apk");
   endif;
-  
+
   if file_getprop("/tmp/aroma/nfc.prop","selected.1") == "3" then
 	  ui_print("Installing NFC screen on/lockscreen on mod...");
 	  package_extract_file("mods/LgNfc_screenonlockon/LgNfc.apk", "/tmp/LgNfc.apk");
   endif;
-  
+
  run_program("/sbin/busybox", "cp", "-r", "/system/app/LgNfc/", "/system/__Backup/system_app/");
- run_program("/sbin/busybox", "mv", "/tmp/LgNfc.apk", "/system/app/LgNfc/LgNfc.apk"); 
+ run_program("/sbin/busybox", "mv", "/tmp/LgNfc.apk", "/system/app/LgNfc/LgNfc.apk");
  set_perm(0, 0, 0644, "/system/app/LgNfc/LgNfc.apk");
  delete_recursive("/system/app/LgNfc/oat");
- 
- 
+
+
 # Installing apps
 unmount("/system");
 run_program("/sbin/busybox", "mount", "/system");
@@ -702,15 +711,15 @@ if file_getprop("/tmp/aroma/add_apps.prop", "item.1.1") == "1" then
 	ui_print("Installing NovaLauncher...");
 	run_program("/sbin/busybox", "mkdir", "/system/app/NovaLauncher");
 	package_extract_file("apps/NovaLauncher/NovaLauncher.apk", "/system/app/NovaLauncher/NovaLauncher.apk");
-endif;	
+endif;
 
 # Google Messenger
 if file_getprop("/tmp/aroma/add_apps.prop", "item.1.2") == "1" then
 	ui_print("Installing Google Messenger...");
 	run_program("/sbin/busybox", "mkdir", "/system/app/Messenger");
 	package_extract_file("apps/Messenger/Messenger.apk", "/system/app/Messenger/Messenger.apk");
-endif;	  
- 
+endif;
+
 set_progress(0.9);
 ui_print("Installing DONE!");
 #ui_print("Setting permissions...");
