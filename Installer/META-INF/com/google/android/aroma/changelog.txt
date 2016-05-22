@@ -1,0 +1,10 @@
+<b><#selectbg_g>v1.0</#></b>
+<*>Initial release</*>
+
+<b><#selectbg_g>v1.1</#></b>
+<*>NFC Mod is now compatible with 20g</*>
+<*>Updated Nova Launcher</*>
+<*>Updated Google Messenger</*>
+<*>LGAlarmClock will be not removed by default</*>
+<*>Added some new help description to the bloat list</*>
+<*>Removed the CTT Mod</*>

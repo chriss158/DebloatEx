@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Created-By: Ryuinferno @ XDA
+
+Name: mods/LgNfc_stock/LgNfc.apk
+SHA1-Digest: zuC1aII63ZC6WyMgEemw1Pxm9BA=
+
+Name: mods/LgNfc_screenonlockon/LgNfc.apk
+SHA1-Digest: a0dOceoypSWraQ+HZbXbK4YYhoM=
+
+Name: mods/LgNfc_screenoff/LgNfc.apk
+SHA1-Digest: xa5Clzk8eSrFxQ64rPNhLNO/Tjo=
+
+Name: apps/NovaLauncher/NovaLauncher.apk
+SHA1-Digest: ZmLYrqplVbTXrCxod+dmUUebM50=
+
+Name: apps/Messenger/Messenger.apk
+SHA1-Digest: KnovarCZRHywSivhPf5f5zQKnZ0=
+
+Name: system/etc/thermal-engine-default.conf
+SHA1-Digest: X21EwRmSRc9ZpDholos7HYiA8SY=
+
+Name: system/etc/thermal-engine-8992.conf
+SHA1-Digest: Q6+0Ja8wPHKesOznskjSvFAUFL0=
+

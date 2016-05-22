@@ -1,0 +1,706 @@
+ui_print("****************************************************");
+ui_print("DebloatEx for LG G4 (MM 20g)");
+ui_print("by hasenbolle");
+ui_print("****************************************************");
+set_progress(0.2);
+run_program("/sbin/sleep", "2");
+unmount("/system");
+run_program("/sbin/busybox", "mount", "/system");
+ui_print("Creating backup folders...");
+run_program("/sbin/sleep", "2");
+run_program("/sbin/busybox", "mkdir", "/system/__Backup");
+run_program("/sbin/busybox", "mkdir", "/system/__Backup/system_app");
+run_program("/sbin/busybox", "mkdir", "/system/__Backup/system_priv-app");
+run_program("/sbin/busybox", "mkdir", "/system/__Backup/tts");
+run_program("/sbin/busybox", "mkdir", "/system/__Backup/media");
+run_program("/sbin/busybox", "mkdir", "/system/__Backup/media/audio");
+run_program("/sbin/busybox", "mkdir", "/system/__Backup/media/gallery");
+run_program("/sbin/busybox", "chmod", "755", "/system/__Backup");
+run_program("/sbin/busybox", "chmod", "755", "/system/__Backup/system_app");
+run_program("/sbin/busybox", "chmod", "755", "/system/__Backup/system_priv-app");
+run_program("/sbin/busybox", "chmod", "755", "/system/__Backup/tts");
+run_program("/sbin/busybox", "chmod", "755", "/system/__Backup/media");
+run_program("/sbin/busybox", "chmod", "755", "/system/__Backup/media/audio");
+run_program("/sbin/busybox", "chmod", "755", "/system/__Backup/media/gallery");
+set_progress(0.3);
+ui_print("Creating backup folders DONE!");
+ui_print("Cleaning up...");
+run_program("/sbin/sleep", "2");
+
+
+if file_getprop("/tmp/aroma/debloat.prop", "selected.1") == "1" then
+
+# CloudHub
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.1") == "1" then
+	ui_print("Removing CloudHub...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/CloudHub", "/system/__Backup/system_priv-app");
+endif;
+
+# DrmService
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.2") == "1" then
+	ui_print("Removing DrmService...");
+	run_program("/sbin/busybox", "mv", "/system/app/DrmService", "/system/__Backup/system_app");
+endif;
+
+# FaceLock
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.3") == "1" then
+	ui_print("Removing FaceLock...");
+	run_program("/sbin/busybox", "mv", "/system/app/FaceLock", "/system/__Backup/system_app");
+endif;
+
+# GCUV
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.4") == "1" then
+	ui_print("Removing GCUV...");
+	run_program("/sbin/busybox", "mv", "/system/app/GCUV", "/system/__Backup/system_app");
+endif;
+
+# GnssAirTest
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.5") == "1" then
+	ui_print("Removing GnssAirTest...");
+	run_program("/sbin/busybox", "mv", "/system/app/GnssAirTest", "/system/__Backup/system_app");
+endif;
+
+# GnssLogCat
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.6") == "1" then
+	ui_print("Removing GnssLogCat...");
+	run_program("/sbin/busybox", "mv", "/system/app/GnssLogCat", "/system/__Backup/system_app");
+endif;
+
+# GnssPosTest
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.7") == "1" then
+	ui_print("Removing GnssPosTest...");
+	run_program("/sbin/busybox", "mv", "/system/app/GnssPosTest", "/system/__Backup/system_app");
+endif;
+
+# GnssTest
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.8") == "1" then
+	ui_print("Removing GnssTest...");
+	run_program("/sbin/busybox", "mv", "/system/app/GnssTest", "/system/__Backup/system_app");
+endif;
+
+# GoogleTTS
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.9") == "1" then
+	ui_print("Removing GoogleTTS...");
+	run_program("/sbin/busybox", "mv", "/system/app/GoogleTTS", "/system/__Backup/system_app");
+	
+	# TTS files
+	run_program("/sbin/busybox", "mv", "/system/tts", "/system/__Backup/");
+endif;
+
+# HiddenMenu
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.10") == "1" then
+	ui_print("Removing HiddenMenu...");
+	run_program("/sbin/busybox", "mv", "/system/app/HiddenMenu", "/system/__Backup/system_app");
+endif;
+
+# HiddenSIMUnlockMenu
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.11") == "1" then
+	ui_print("Removing HiddenSIMUnlockMenu...");
+	run_program("/sbin/busybox", "mv", "/system/app/HiddenSIMUnlockMenu", "/system/__Backup/system_app");
+endif;
+
+# HTMLViewer
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.12") == "1" then
+	ui_print("Removing HTMLViewer...");
+	run_program("/sbin/busybox", "mv", "/system/app/HTMLViewer", "/system/__Backup/system_app");
+endif;
+
+# LGAirDrive
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.13") == "1" then
+	ui_print("Removing LGAirDrive...");
+	run_program("/sbin/busybox", "mv", "/system/app/LGAirDrive", "/system/__Backup/system_app");
+endif;
+
+# LGDrm
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.14") == "1" then
+	ui_print("Removing LGDrm...");
+	run_program("/sbin/busybox", "mv", "/system/app/LGDrm", "/system/__Backup/system_app");
+endif;
+
+# LGEasySettings
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.15") == "1" then
+	ui_print("Removing LGEasySettings...");
+	run_program("/sbin/busybox", "mv", "/system/app/LGEasySettings", "/system/__Backup/system_app");
+endif;
+
+# LGEIME_THEME_BLACK3
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.16") == "1" then
+	ui_print("Removing LGEIME_THEME_BLACK3...");
+	run_program("/sbin/busybox", "mv", "/system/app/LGEIME_THEME_BLACK3", "/system/__Backup/system_app");
+endif;
+
+# LGHome_Theme_Optimus
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.17") == "1" then
+	ui_print("Removing LGHome_Theme_Optimus...");
+	run_program("/sbin/busybox", "mv", "/system/app/LGHome_Theme_Optimus", "/system/__Backup/system_app");
+endif;
+
+# LGLDB
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.18") == "1" then
+	ui_print("Removing LGLDB...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGLDB", "/system/__Backup/system_priv-app");
+endif;
+
+# LGMusicShare
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.19") == "1" then
+	ui_print("Removing LGMusicShare...");
+	run_program("/sbin/busybox", "mv", "/system/app/LGMusicShare", "/system/__Backup/system_app");
+endif;
+
+# LGPartnerBookmarksProvider
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.20") == "1" then
+	ui_print("Removing LGPartnerBookmarksProvider...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGPartnerBookmarksProvider", "/system/__Backup/system_priv-app");
+endif;
+
+# LGSmartcardService
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.21") == "1" then
+	ui_print("Removing LGSmartcardService...");
+	run_program("/sbin/busybox", "mv", "/system/app/LGSmartcardService", "/system/__Backup/system_app");
+endif;
+
+# LGSpringCleaning
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.22") == "1" then
+	ui_print("Removing LGSpringCleaning...");
+	run_program("/sbin/busybox", "mv", "/system/app/LGSpringCleaning", "/system/__Backup/system_app");
+endif;
+
+# LGStk
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.23") == "1" then
+	ui_print("Removing LGStk...");
+	run_program("/sbin/busybox", "mv", "/system/app/LGStk", "/system/__Backup/system_app");
+endif;
+
+# LGTouchControlAreas
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.24") == "1" then
+	ui_print("Removing LGTouchControlAreas...");
+	run_program("/sbin/busybox", "mv", "/system/app/LGTouchControlAreas", "/system/__Backup/system_app");
+endif;
+
+# LGWeatherService
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.25") == "1" then
+	ui_print("Removing LGWeatherService...");
+	run_program("/sbin/busybox", "mv", "/system/app/LGWeatherService", "/system/__Backup/system_app");
+endif;
+
+# LGWernickeManager
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.26") == "1" then
+	ui_print("Removing LGWernickeManager...");
+	run_program("/sbin/busybox", "mv", "/system/app/LGWernickeManager", "/system/__Backup/system_app");
+endif;
+
+# LGWfdsServices
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.27") == "1" then
+	ui_print("Removing LGWfdsServices...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGWfdsServices", "/system/__Backup/system_priv-app");
+endif;
+
+# PacProcessor
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.28") == "1" then
+	ui_print("Removing PacProcessor...");
+	run_program("/sbin/busybox", "mv", "/system/app/PacProcessor", "/system/__Backup/system_app");
+endif;
+
+# SmartShare
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.29") == "1" then
+	ui_print("Removing SmartShare...");
+	run_program("/sbin/busybox", "mv", "/system/app/SmartShare", "/system/__Backup/system_app");
+endif;
+
+# SmartShareDLNA
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.30") == "1" then
+	ui_print("Removing SmartShareDLNA...");
+	run_program("/sbin/busybox", "mv", "/system/app/SmartShareDLNA", "/system/__Backup/system_app");
+endif;
+
+# SmartShareProvider
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.31") == "1" then
+	ui_print("Removing SmartShareProvider...");
+	run_program("/sbin/busybox", "mv", "/system/app/SmartShareProvider", "/system/__Backup/system_app");
+endif;
+
+# WfdService
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.32") == "1" then
+	ui_print("Removing WfdService...");
+	run_program("/sbin/busybox", "mv", "/system/app/WfdService", "/system/__Backup/system_app");
+endif;
+
+# WVTest
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.33") == "1" then
+	ui_print("Removing WVTest...");
+	run_program("/sbin/busybox", "mv", "/system/app/WVTest", "/system/__Backup/system_app");
+endif;
+
+# elt_test
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.34") == "1" then
+	ui_print("Removing elt_test...");
+	run_program("/sbin/busybox", "mv", "/system/app/elt_test", "/system/__Backup/system_app");
+endif;
+
+# rspermlge
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.35") == "1" then
+	ui_print("Removing rspermlge...");
+	run_program("/sbin/busybox", "mv", "/system/app/rspermlge", "/system/__Backup/system_app");
+endif;
+
+# servicemenu
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.36") == "1" then
+	ui_print("Removing servicemenu...");
+	run_program("/sbin/busybox", "mv", "/system/app/servicemenu", "/system/__Backup/system_app");
+endif;
+
+# BioITPlatform_SDService
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.37") == "1" then
+	ui_print("Removing BioITPlatform_SDService...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/BioITPlatform_SDService", "/system/__Backup/system_priv-app");
+endif;
+
+# DualSimStatus
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.38") == "1" then
+	ui_print("Removing DualSimStatus...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/DualSimStatus", "/system/__Backup/system_priv-app");
+endif;
+
+# EdenService
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.39") == "1" then
+	ui_print("Removing EdenService...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/EdenService", "/system/__Backup/system_priv-app");
+endif;
+
+# EodEngine
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.40") == "1" then
+	ui_print("Removing EodEngine...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/EodEngine", "/system/__Backup/system_priv-app");
+endif;
+
+# Leccp
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.41") == "1" then
+	ui_print("Removing Leccp...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/Leccp", "/system/__Backup/system_priv-app");
+endif;
+
+# LGBackup
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.42") == "1" then
+	ui_print("Removing LGBackup...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGBackup", "/system/__Backup/system_priv-app");
+endif;
+
+# LGConciergeBoard
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.43") == "1" then
+	ui_print("Removing LGConciergeBoard...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGConciergeBoard", "/system/__Backup/system_priv-app");
+endif;
+
+# LGCover
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.44") == "1" then
+	ui_print("Removing LGCover...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGCover", "/system/__Backup/system_priv-app");
+endif;
+
+# LGDMSClient
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.45") == "1" then
+	ui_print("Removing LGDMSClient...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGDMSClient", "/system/__Backup/system_priv-app");
+endif;
+
+# LGEasyHome
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.46") == "1" then
+	ui_print("Removing LGEasyHome...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGEasyHome", "/system/__Backup/system_priv-app");
+endif;
+
+# LGFormManager
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.47") == "1" then
+	ui_print("Removing LGFormManager...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGFormManager", "/system/__Backup/system_priv-app");
+endif;
+
+# LGGestureAnswering
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.48") == "1" then
+	ui_print("Removing LGGestureAnswering...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGGestureAnswering", "/system/__Backup/system_priv-app");
+endif;
+
+# LGHome
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.49") == "1" then
+	ui_print("Removing LGHome...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGHome", "/system/__Backup/system_priv-app");
+endif;
+
+# LGIFTTT
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.50") == "1" then
+	ui_print("Removing LGIFTTT...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGIFTTT", "/system/__Backup/system_priv-app");
+endif;
+
+# LGLDB
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.51") == "1" then
+	ui_print("Removing LGLDB...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGLDB", "/system/__Backup/system_priv-app");
+endif;
+
+# LGLIA
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.52") == "1" then
+	ui_print("Removing LGLIA...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGLIA", "/system/__Backup/system_priv-app");
+endif;
+
+# LGLiveWallpapersPicker
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.53") == "1" then
+	ui_print("Removing LGLiveWallpapersPicker...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGLiveWallpapersPicker", "/system/__Backup/system_priv-app");
+endif;
+
+# LGLW_MultiPhoto
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.54") == "1" then
+	ui_print("Removing LGLW_MultiPhoto...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGLW_MultiPhoto", "/system/__Backup/system_priv-app");
+endif;
+
+# LGMapUI
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.55") == "1" then
+	ui_print("Removing LGMapUI...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGMapUI", "/system/__Backup/system_priv-app");
+endif;
+
+# LGMessage
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.56") == "1" then
+	ui_print("Removing LGMessage...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGMessage", "/system/__Backup/system_priv-app");
+endif;
+
+# LGMusic
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.57") == "1" then
+	ui_print("Removing LGMusic...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGMusic", "/system/__Backup/system_priv-app");
+endif;
+
+# LGMusicWidget
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.58") == "1" then
+	ui_print("Removing LGMusicWidget...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGMusicWidget", "/system/__Backup/system_priv-app");
+endif;
+
+# LGMyGuide
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.59") == "1" then
+	ui_print("Removing LGMyGuide...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGMyGuide", "/system/__Backup/system_priv-app");
+endif;
+
+# LGMyPlacesEngine
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.60") == "1" then
+	ui_print("Removing LGMyPlacesEngine...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGMyPlacesEngine", "/system/__Backup/system_priv-app");
+endif;
+
+# LGMyPlacesSettings
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.61") == "1" then
+	ui_print("Removing LGMyPlacesSettings...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGMyPlacesSettings", "/system/__Backup/system_priv-app");
+endif;
+
+# LGRcsCall
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.62") == "1" then
+	ui_print("Removing LGRcsCall...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGRcsCall", "/system/__Backup/system_priv-app");
+endif;
+
+# LGRCSServices
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.63") == "1" then
+	ui_print("Removing LGRCSServices...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGRCSServices", "/system/__Backup/system_priv-app");
+endif;
+
+# LGSmartSharePush
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.64") == "1" then
+	ui_print("Removing LGSmartSharePush...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGSmartSharePush", "/system/__Backup/system_priv-app");
+endif;
+
+# LGSnapPage
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.65") == "1" then
+	ui_print("Removing LGSnapPage...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGSnapPage", "/system/__Backup/system_priv-app");
+endif;
+
+# LGTasksProvider
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.66") == "1" then
+	ui_print("Removing LGTasksProvider...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGTasksProvider", "/system/__Backup/system_priv-app");
+endif;
+
+# LGTTS
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.67") == "1" then
+	ui_print("Removing LGTTS...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGTTS", "/system/__Backup/system_priv-app");
+endif;
+
+# LGUpdateCenter
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.68") == "1" then
+	ui_print("Removing LGUpdateCenter...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGUpdateCenter", "/system/__Backup/system_priv-app");
+endif;
+
+# LGVidClip
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.69") == "1" then
+	ui_print("Removing LGVidClip...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGVidClip", "/system/__Backup/system_priv-app");
+endif;
+
+# LGVideo
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.70") == "1" then
+	ui_print("Removing LGVideo...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGVideo", "/system/__Backup/system_priv-app");
+endif;
+
+# LGVoiceRecorder
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.71") == "1" then
+	ui_print("Removing LGVoiceRecorder...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGVoiceRecorder", "/system/__Backup/system_priv-app");
+endif;
+
+# LIAInformant
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.72") == "1" then
+	ui_print("Removing LIAInformant...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LIAInformant", "/system/__Backup/system_priv-app");
+endif;
+
+# LIAS4URecommender
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.73") == "1" then
+	ui_print("Removing LIAS4URecommender...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LIAS4URecommender", "/system/__Backup/system_priv-app");
+endif;
+
+# SmartSetting
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.74") == "1" then
+	ui_print("Removing SmartSetting...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/SmartSetting", "/system/__Backup/system_priv-app");
+endif;
+
+# SplitWindowService
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.75") == "1" then
+	ui_print("Removing SplitWindowService...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/SplitWindowService", "/system/__Backup/system_priv-app");
+endif;
+
+# Velvet
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.76") == "1" then
+	ui_print("Removing Velvet...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/Velvet", "/system/__Backup/system_priv-app");
+endif;
+
+# VpnDialogs
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.77") == "1" then
+	ui_print("Removing VpnDialogs...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/VpnDialogs", "/system/__Backup/system_priv-app");
+endif;
+
+# WapService
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.78") == "1" then
+	ui_print("Removing WapService...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/WapService", "/system/__Backup/system_priv-app");
+endif;
+
+# LGCalendarProvider
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.79") == "1" then
+	ui_print("Removing LGCalendarProvider...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGCalendarProvider", "/system/__Backup/system_priv-app");
+endif;
+
+# LGCalendar
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.80") == "1" then
+	ui_print("Removing LGCalendar...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGCalendar", "/system/__Backup/system_priv-app");
+endif;
+
+# LGAlarmClock
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.81") == "1" then
+	ui_print("Removing LGAlarmClock...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGAlarmClock", "/system/__Backup/system_priv-app");
+endif;
+
+# PrintSpooler
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.82") == "1" then
+	ui_print("Removing PrintSpooler...");
+	run_program("/sbin/busybox", "mv", "/system/app/PrintSpooler", "/system/__Backup/system_app");
+endif;
+
+# BackupRestoreConfirmation
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.83") == "1" then
+	ui_print("Removing BackupRestoreConfirmation...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/BackupRestoreConfirmation", "/system/__Backup/system_priv-app");
+endif;
+
+# GoogleBackupTransport
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.84") == "1" then
+	ui_print("Removing GoogleBackupTransport...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/GoogleBackupTransport", "/system/__Backup/system_priv-app");
+endif;
+
+# GoogleFeedback
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.85") == "1" then
+	ui_print("Removing GoogleFeedback...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/GoogleFeedback", "/system/__Backup/system_priv-app");
+endif;
+
+# InputDevices
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.86") == "1" then
+	ui_print("Removing InputDevices...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/InputDevices", "/system/__Backup/system_priv-app");
+endif;
+
+# SharedStorageBackup
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.87") == "1" then
+	ui_print("Removing SharedStorageBackup...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/SharedStorageBackup", "/system/__Backup/system_priv-app");
+endif;
+
+# LGFileManager
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.88") == "1" then
+	ui_print("Removing LGFileManager...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGFileManager", "/system/__Backup/system_priv-app");
+endif;
+
+# LGBackupLauncher
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.89") == "1" then
+	ui_print("Removing LGBackupLauncher...");
+	run_program("/sbin/busybox", "mv", "/system/app/LGBackupLauncher", "/system/__Backup/system_app");
+endif;
+
+# LGBrowser
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.90") == "1" then
+	ui_print("Removing LGBrowser...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGBrowser", "/system/__Backup/system_priv-app");
+endif;
+
+# LGCb
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.91") == "1" then
+	ui_print("Removing LGCb...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGCb", "/system/__Backup/system_priv-app");
+endif;
+
+# LGEmail
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.92") == "1" then
+	ui_print("Removing LGEmail...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGEmail", "/system/__Backup/system_priv-app");
+endif;
+
+# LGExchange
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.93") == "1" then
+	ui_print("Removing LGExchange...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGExchange", "/system/__Backup/system_priv-app");
+endif;
+
+# LGPCSuite
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.94") == "1" then
+	ui_print("Removing LGPCSuite...");
+	run_program("/sbin/busybox", "mv", "/system/app/LGPCSuite", "/system/__Backup/system_app");
+endif;
+
+# LGPCSuiteService
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.95") == "1" then
+	ui_print("Removing LGPCSuiteService...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGPCSuiteService", "/system/__Backup/system_priv-app");
+endif;
+
+# MirrorLinkCertUpdate
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.96") == "1" then
+	ui_print("Removing MirrorLinkCertUpdate...");
+	run_program("/sbin/busybox", "mv", "/system/app/MirrorLinkCertUpdate", "/system/__Backup/system_app");
+endif;
+
+# MirrorLinkServer
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.97") == "1" then
+	ui_print("Removing MirrorLinkServer...");
+	run_program("/sbin/busybox", "mv", "/system/app/MirrorLinkServer", "/system/__Backup/system_app");
+endif;
+
+
+
+# Gallery files
+if file_getprop("/tmp/aroma/bloatware_other.prop", "item.1.1") == "1" then
+	ui_print("Removing gallery files...");
+	run_program("/sbin/busybox", "mv", "/system/media/gallery", "/system/__Backup/media");
+	run_program("/sbin/busybox", "mkdir", "/system/media/gallery");
+endif;	
+
+# Ringtone files
+if file_getprop("/tmp/aroma/bloatware_other.prop", "item.1.2") == "1" then
+	ui_print("Removing ringtones...");
+	run_program("/sbin/busybox", "mv", "/system/media/audio/ringtones", "/system/__Backup/media/audio");
+	run_program("/sbin/busybox", "mkdir", "/system/media/audio/ringtones");
+endif;	
+
+# Notifications audio files
+if file_getprop("/tmp/aroma/bloatware_other.prop", "item.1.3") == "1" then
+	ui_print("Removing notifications audio files...");
+	run_program("/sbin/busybox", "mv", "/system/media/audio/notifications", "/system/__Backup/media/audio");
+	run_program("/sbin/busybox", "mkdir", "/system/media/audio/notifications");
+endif;	
+
+
+
+endif;
+
+
+set_progress(0.8);
+ui_print("Cleaning DONE!");
+ui_print("Installing extras...");
+run_program("/sbin/sleep", "2");
+
+#Installing system
+package_extract_dir("system", "/system");
+
+
+#Installing NFCMod
+unmount("/system");
+run_program("/sbin/busybox", "mount", "/system");
+  if file_getprop("/tmp/aroma/nfc.prop","selected.1") == "1" then
+	  ui_print("Installing stock NFC...");
+	  package_extract_file("mods/LgNfc_stock/LgNfc.apk", "/tmp/LgNfc.apk");
+  endif;
+
+  if file_getprop("/tmp/aroma/nfc.prop","selected.1") == "2" then
+	  ui_print("Installing NFC screen off mod...");
+	  package_extract_file("mods/LgNfc_screenoff/LgNfc.apk", "/tmp/LgNfc.apk");
+  endif;
+  
+  if file_getprop("/tmp/aroma/nfc.prop","selected.1") == "3" then
+	  ui_print("Installing NFC screen on/lockscreen on mod...");
+	  package_extract_file("mods/LgNfc_screenonlockon/LgNfc.apk", "/tmp/LgNfc.apk");
+  endif;
+  
+ run_program("/sbin/busybox", "cp", "-r", "/system/app/LgNfc/", "/system/__Backup/system_app/");
+ run_program("/sbin/busybox", "mv", "/tmp/LgNfc.apk", "/system/app/LgNfc/LgNfc.apk"); 
+ set_perm(0, 0, 0644, "/system/app/LgNfc/LgNfc.apk");
+ delete_recursive("/system/app/LgNfc/oat");
+ 
+ 
+# Installing apps
+unmount("/system");
+run_program("/sbin/busybox", "mount", "/system");
+# NovaLauncher
+if file_getprop("/tmp/aroma/add_apps.prop", "item.1.1") == "1" then
+	ui_print("Installing NovaLauncher...");
+	run_program("/sbin/busybox", "mkdir", "/system/app/NovaLauncher");
+	package_extract_file("apps/NovaLauncher/NovaLauncher.apk", "/system/app/NovaLauncher/NovaLauncher.apk");
+endif;	
+
+# Google Messenger
+if file_getprop("/tmp/aroma/add_apps.prop", "item.1.2") == "1" then
+	ui_print("Installing Google Messenger...");
+	run_program("/sbin/busybox", "mkdir", "/system/app/Messenger");
+	package_extract_file("apps/Messenger/Messenger.apk", "/system/app/Messenger/Messenger.apk");
+endif;	  
+ 
+set_progress(0.9);
+ui_print("Installing DONE!");
+#ui_print("Setting permissions...");
+#unmount("/system");
+#run_program("/sbin/busybox", "mount", "/system");
+#set_perm(1000, 1000, 0644, "/system/etc/thermal-engine-8992.conf");
+#set_perm(1000, 1000, 0644, "/system/etc/thermal-engine-default.conf");
+unmount("/system");
+#ui_print("Setting permissions DONE!");
+set_progress(1.0);
+ui_print("DONE!");
