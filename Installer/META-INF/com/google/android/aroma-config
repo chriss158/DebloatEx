@@ -205,9 +205,9 @@ textbox(
 "LGPCSuite", 				        "", 								1,		#-- item.1.94
 "LGPCSuiteService", 				        "", 								1,		#-- item.1.95
 "MirrorLinkCertUpdate", 				        "", 								1,		#-- item.1.96
-"MirrorLinkServer", 				        "", 								1		#-- item.1.97
-"LG360Wallpaper", 				        "", 								1		#-- item.1.98
-"LiveWallpapers_Cat", 				        "", 								1		#-- item.1.99
+"MirrorLinkServer", 				        "", 								1,		#-- item.1.97
+"LG360Wallpaper", 				        "", 								1,		#-- item.1.98
+"LiveWallpapers_Cat", 				        "", 								1,		#-- item.1.99
 "LiveWallpapers_Kaleidoscope", 				        "", 								1		#-- item.1.100
 
 	);
