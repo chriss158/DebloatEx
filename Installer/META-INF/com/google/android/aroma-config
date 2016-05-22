@@ -44,7 +44,7 @@ viewbox(
 	"</b> for <b>"+ini_get("rom_device")+"</b>.\n\n"+
     "Relevant information:\n\n"+
 	  "  Name\t: <b><#selectbg_g>"+ini_get("rom_name")+"</#></b>\n"+
-      "  Vers.\t: <b><#selectbg_g>"+ini_get("rom_version")+"</#></b>\n"+	
+      "  Vers.\t: <b><#selectbg_g>"+ini_get("rom_version")+"</#></b>\n"+
 	  "  Author\t: <b><#selectbg_g>"+ini_get("rom_author")+"</#></b>\n"+
 	  "  Device\t: <b><#selectbg_g>"+ini_get("rom_device")+"</#></b>\n"+
 	  "  Date\t: <b><#selectbg_g>"+ini_get("rom_date")+"</#></b>\n"+
@@ -52,7 +52,7 @@ viewbox(
     "@welcome"
 );
 
-###    
+###
 # TERMS AND CONDITIONS
 
 agreebox(
@@ -64,19 +64,19 @@ agreebox(
   "You must agree to the Terms and Conditions to continue"
 );
 
-###    
+###
 # CHANGELOG
 
 textbox(
   #-- Title
     "<~Changelog>",
-  
+
   #-- Subtitle
     "<~Read Changelog>",
-  
+
   #-- Icon
     "@update",
-  
+
   #-- Arg 4
     resread("changelog.txt")
 );
@@ -85,7 +85,7 @@ textbox(
 #                                                                                                                 #
 #                                            Debloater Installer                                               #
 #                                                                                                                 #
-###################################################################################################################Non 		
+###################################################################################################################Non
 
 # Debloat
 		selectbox(
@@ -93,21 +93,21 @@ textbox(
 			"Debloat",
 			"@personalize",
 			"debloat.prop",
-				
+
 			"Do you want to debloat?",				"",         2,	#-- Group 1 - key = "selected.1"
 			"Yes",								"Yes, i want to remove apps",					1,	#-- selected.1 = 1
 			"No",								"No, i dont want to remove apps",			0	#-- selected.1 = 1
 		);
-		
+
 	if (prop("debloat.prop","selected.1")=="1")
 		then
-				
+
 	checkbox(
 	  "Bloatware - LG/Google system apps",
 	  "Select the apps which you want to remove: ",
 	  "@apps",
 	  "bloatware.prop",
-		
+
 		"Bloatware Apps",							"",									2,		#-- Group 1. key = "item.1"
 "CloudHub", 				        "", 								1,		#-- item.1.1
 "DrmService", 				        "", 								1,		#-- item.1.2
@@ -211,46 +211,57 @@ textbox(
 "LiveWallpapers_Kaleidoscope", 				        "", 								1		#-- item.1.100
 
 	);
-	
+
 		endif;
-	
+
 	checkbox(
 	  "Bloatware - Other files/folders",
 	  "Select the files/folders that you want to remove: ",
 	  "@apps",
 	  "bloatware_other.prop",
-		
+
 		"Bloatware files/folders",							"",									2,		#-- Group 1. key = "item.1"
 		"Gallery", 				        "/system/media/gallery", 								1,		#-- item.1.1
 		"Ringtones", 				    "/system/media/audio/ringtones", 						0,		#-- item.1.2
 		"Notifications (Audio files)", 	"/system/media/audio/notifications", 					0		#-- item.1.3
 	);
-	
-	
+
+  checkbox(
+  "Other customization:",
+  "Select what other customization you want to apply: ",
+  "@customize",
+  "custom_other.prop",
+
+  "Select what other customization you want to apply:",							"",									2,		#-- Group 1. key = "item.1"
+  "Set DPI to 540", 				        "Smaller, Better looking UI", 								1,		#-- item.1.1
+  "Set LG adoptable Storage", 				    "allows Apps to write to the SD-Card and to merge Storage", 						1		#-- item.1.2
+  );
+
+
 # NFC Mod
 		selectbox(
 			"NFC Mod",
 			"NFC Mod",
 			"@customize",
 			"nfc.prop",
-	
+
 			"Select how NFC should work",	"",                 													2,	#-- Group 1 - key = "selected.1"
 			"Stock",											"Stock behavior",									1,	#-- selected.1 = 1
 			"NFC screen off",									"NFC enabled when screen is off",					0,	#-- selected.1 = 2
 			"NFC screen on/lockscreen on",						"NFC enabled when screen is on and lockscreen on",	0	#-- selected.1 = 3
 		);
-		
+
 		checkbox(
 	  "Apps - Install additional apps: ",
 	  "Select the apps that you want to install: ",
 	  "@apps",
 	  "add_apps.prop",
-		
+
 		"Select the apps",							"",									2,		#-- Group 1. key = "item.1"
 		"NovaLauncher", 				        "", 								1,		#-- item.1.1
 		"Google Messenger", 				    "", 						1		#-- item.1.2
 	);
-		
+
 ini_set("text_next", "Install Now");
 
 viewbox(
@@ -271,15 +282,15 @@ setvar("retstatus",
   install(
 	#-- Title
       "Installing",
-	
+
 	#-- Installation Process message
 	  "<b>"+ini_get("rom_name")+"</b> are being installed.\n\n"+
       "Please wait while installation wizard installs <b>"+ini_get("rom_name")+
 	  "</b>. This may take several minutes.",
-	
+
 	#-- Installation Icon
       "@install",
-	
+
 	#-- Installation Finish Message
       "The installation wizard has successfully installed <b>"+ini_get("rom_name")+
 	  "</b>. Press Next to continue."
@@ -301,12 +312,12 @@ ini_set("text_next", "Finish");
 checkviewbox(
   #-- Title
     "Installation Completed",
-  
+
   #-- Text
     "<#selectbg_g><b>Congratulation...</b></#>\n\n"+
     "<b>"+ini_get("rom_name")+"</b> has been installed into your device.\n\n"+
     "Installer Status: "+getvar("retstatus")+"\n\n",
-	
+
   #-- Icon
     "@welcome",
 
