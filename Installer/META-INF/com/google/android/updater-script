@@ -615,6 +615,24 @@ if file_getprop("/tmp/aroma/bloatware.prop", "item.1.97") == "1" then
 	run_program("/sbin/busybox", "mv", "/system/app/MirrorLinkServer", "/system/__Backup/system_app");
 endif;
 
+# LG360Wallpaper
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.98") == "1" then
+	ui_print("Removing LG360Wallpaper...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LG360Wallpaper", "/system/__Backup/system_priv-app");
+endif;
+
+# LiveWallpapers_Cat
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.99") == "1" then
+	ui_print("Removing LiveWallpapers_Cat...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LiveWallpapers_Cat", "/system/__Backup/system_priv-app");
+endif;
+
+# LiveWallpapers_Kaleidoscope
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.100") == "1" then
+	ui_print("Removing LiveWallpapers_Kaleidoscope...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LiveWallpapers_Kaleidoscope", "/system/__Backup/system_priv-app");
+endif;
+
 
 
 # Gallery files

@@ -27,10 +27,10 @@
 #
 ### ROM INFORMATION
 ini_set("rom_name",			  "DebloatEx for LG G4");
-ini_set("rom_version",          "1.1");
+ini_set("rom_version",          "1.2");
 ini_set("rom_author",           "hasenbolle");
 ini_set("rom_device",           "LG G4 H815");
-ini_set("rom_date",             "20/05/2016");
+ini_set("rom_date",             "22/05/2016");
 
 fontresload( "0", "ttf/Roboto-Regular.ttf;ttf/DroidSansFallback.ttf;", "12" ); #-- Use sets of font (Font Family)
 fontresload( "1", "ttf/Roboto-Regular.ttf;ttf/DroidSansFallback.ttf;", "14" ); #-- Use sets of font (Font Family)
@@ -206,6 +206,9 @@ textbox(
 "LGPCSuiteService", 				        "", 								1,		#-- item.1.95
 "MirrorLinkCertUpdate", 				        "", 								1,		#-- item.1.96
 "MirrorLinkServer", 				        "", 								1		#-- item.1.97
+"LG360Wallpaper", 				        "", 								1		#-- item.1.98
+"LiveWallpapers_Cat", 				        "", 								1		#-- item.1.99
+"LiveWallpapers_Kaleidoscope", 				        "", 								1		#-- item.1.100
 
 	);
 	

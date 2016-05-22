@@ -8,3 +8,8 @@
 <*>LGAlarmClock will be not removed by default</*>
 <*>Added some new help description to the bloat list</*>
 <*>Removed the CTT Mod</*>
+
+<b><#selectbg_g>v1.2</#></b>
+<*>Added LG360Wallpaper for removal</*>
+<*>Added LiveWallpapers_Kaleidoscope for removal</*>
+<*>Added LiveWallpapers_Cat for removal</*>
