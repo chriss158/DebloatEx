@@ -18,3 +18,4 @@
 <*>Added 540 DPI Mod (thx to michiil)</*>
 <*>Added option to enable LG adoptable storage (thx to michiil)</*>
 <*>Added LGCalculator for removal</*>
+<*>Updated Google Messenger</*>
