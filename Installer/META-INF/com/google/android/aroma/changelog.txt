@@ -13,3 +13,8 @@
 <*>Added LG360Wallpaper for removal</*>
 <*>Added LiveWallpapers_Kaleidoscope for removal</*>
 <*>Added LiveWallpapers_Cat for removal</*>
+
+<b><#selectbg_g>v1.3</#></b>
+<*>Added 540 DPI Mod (thx to michiil)</*>
+<*>Added option to enable LG adoptable storage (thx to michiil)</*>
+<*>Added LGCalculator for removal</*>

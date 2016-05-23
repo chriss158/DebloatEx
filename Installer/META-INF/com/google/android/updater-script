@@ -633,6 +633,12 @@ if file_getprop("/tmp/aroma/bloatware.prop", "item.1.100") == "1" then
 	run_program("/sbin/busybox", "mv", "/system/priv-app/LiveWallpapers_Kaleidoscope", "/system/__Backup/system_priv-app");
 endif;
 
+# LGCalculator
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.101") == "1" then
+	ui_print("Removing LGCalculator...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGCalculator", "/system/__Backup/system_priv-app");
+endif;
+
 
 
 # Gallery files
