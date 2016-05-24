@@ -639,6 +639,30 @@ if file_getprop("/tmp/aroma/bloatware.prop", "item.1.101") == "1" then
 	run_program("/sbin/busybox", "mv", "/system/priv-app/LGCalculator", "/system/__Backup/system_priv-app");
 endif;
 
+# LGContacts
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.102") == "1" then
+	ui_print("Removing LGContacts...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGContacts", "/system/__Backup/system_priv-app");
+endif;
+
+# LGInCallUI
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.103") == "1" then
+	ui_print("Removing LGInCallUI...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGInCallUI", "/system/__Backup/system_priv-app");
+endif;
+
+# LGFavoriteContactsWidget
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.104") == "1" then
+	ui_print("Removing LGFavoriteContactsWidget...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGFavoriteContactsWidget", "/system/__Backup/system_priv-app");
+endif;
+
+# LGGallery
+if file_getprop("/tmp/aroma/bloatware.prop", "item.1.105") == "1" then
+	ui_print("Removing LGGallery...");
+	run_program("/sbin/busybox", "mv", "/system/priv-app/LGGallery", "/system/__Backup/system_priv-app");
+endif;
+
 
 
 # Gallery files
@@ -722,8 +746,29 @@ endif;
 # Google Messenger
 if file_getprop("/tmp/aroma/add_apps.prop", "item.1.2") == "1" then
 	ui_print("Installing Google Messenger...");
-	run_program("/sbin/busybox", "mkdir", "/system/app/Messenger");
-	package_extract_file("apps/Messenger/Messenger.apk", "/system/app/Messenger/Messenger.apk");
+	run_program("/sbin/busybox", "mkdir", "/system/app/GoogleMessenger");
+	package_extract_file("apps/GoogleMessenger/GoogleMessenger.apk", "/system/app/GoogleMessenger/GoogleMessenger.apk");
+endif;
+
+# Google Phone
+if file_getprop("/tmp/aroma/add_apps.prop", "item.1.3") == "1" then
+	ui_print("Installing Google Phone...");
+	run_program("/sbin/busybox", "mkdir", "/system/priv-app/GoogleDialer");
+	package_extract_file("apps/GoogleDialer/GoogleDialer.apk", "/system/priv-app/GoogleDialer/GoogleDialer.apk");
+endif;
+
+# Google Contacts
+if file_getprop("/tmp/aroma/add_apps.prop", "item.1.4") == "1" then
+	ui_print("Installing Google Contacts...");
+	run_program("/sbin/busybox", "mkdir", "/system/priv-app/GoogleContacts");
+	package_extract_file("apps/GoogleContacts/GoogleContacts.apk", "/system/priv-app/GoogleContacts/GoogleContacts.apk");
+endif;
+
+# Google Photos
+if file_getprop("/tmp/aroma/add_apps.prop", "item.1.5") == "1" then
+	ui_print("Installing Google Photos...");
+	run_program("/sbin/busybox", "mkdir", "/system/app/GooglePhotos");
+	package_extract_file("apps/GooglePhotos/GooglePhotos.apk", "/system/app/GooglePhotos/GooglePhotos.apk");
 endif;
 
 set_progress(0.9);

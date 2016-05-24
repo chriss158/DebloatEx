@@ -19,3 +19,12 @@
 <*>Added option to enable LG adoptable storage (thx to michiil)</*>
 <*>Added LGCalculator for removal</*>
 <*>Updated Google Messenger</*>
+
+<b><#selectbg_g>v1.4</#></b>
+<*>Added LGContacts for removal</*>
+<*>Added LGInCallUI for removal</*>
+<*>Added LGFavoriteContactsWidget for removal</*>
+<*>Added LGGallery  for removal</*>
+<*>Added Google Phone for installation (Replacement for LGContacts)</*>
+<*>Added Google Contacts for installation (Replacement for LGContacts)</*>
+<*>Added Google Photos for installation (Replacement for LGGallery)</*>

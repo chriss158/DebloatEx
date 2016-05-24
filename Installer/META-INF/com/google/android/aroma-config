@@ -27,10 +27,10 @@
 #
 ### ROM INFORMATION
 ini_set("rom_name",             "DebloatEx for LG G4");
-ini_set("rom_version",          "1.3");
+ini_set("rom_version",          "1.4");
 ini_set("rom_author",           "hasenbolle");
 ini_set("rom_device",           "LG G4 H815");
-ini_set("rom_date",             "23/05/2016");
+ini_set("rom_date",             "24/05/2016");
 
 fontresload( "0", "ttf/Roboto-Regular.ttf;ttf/DroidSansFallback.ttf;", "12" ); #-- Use sets of font (Font Family)
 fontresload( "1", "ttf/Roboto-Regular.ttf;ttf/DroidSansFallback.ttf;", "14" ); #-- Use sets of font (Font Family)
@@ -157,8 +157,8 @@ textbox(
 "LGEasyHome",                         "",                                 1,        #-- item.1.46
 "LGFormManager",                         "",                                 1,        #-- item.1.47
 "LGGestureAnswering",                         "",                                 1,        #-- item.1.48
-"LGHome",                         "If you install LGHome, install also LGHome_Theme_Optimus",                                 1,        #-- item.1.49
-"LGIFTTT",                         "Removing will remove the smart settings",                                 1,        #-- item.1.50
+"LGHome",                         "If you deactivate LGHome, deactivate also LGHome_Theme_Optimus",                                 1,        #-- item.1.49
+"LGIFTTT",                         "Activating will remove the smart settings",                                 1,        #-- item.1.50
 "LGLDB",                         "",                                 1,        #-- item.1.51
 "LGLIA",                         "",                                 1,        #-- item.1.52
 "LGLiveWallpapersPicker",                         "",                                 0,        #-- item.1.53
@@ -180,16 +180,16 @@ textbox(
 "LGVidClip",                         "",                                 1,        #-- item.1.69
 "LGVideo",                         "",                                 1,        #-- item.1.70
 "LGVoiceRecorder",                         "",                                 1,        #-- item.1.71
-"LIAInformant",                         "Removing will break the smart notice widget",                                 1,        #-- item.1.72
-"LIAS4URecommender",                         "Removing will break the smart notice widget",                                 1,        #-- item.1.73
+"LIAInformant",                         "Activating will break the smart notice widget",                                 1,        #-- item.1.72
+"LIAS4URecommender",                         "Activating will break the smart notice widget",                                 1,        #-- item.1.73
 "SmartSetting",                         "",                                 1,        #-- item.1.74
-"SplitWindowService",                         "Removing will break DualWindow feature",                                 0,        #-- item.1.75
+"SplitWindowService",                         "Activating will remove DualWindow feature",                                 0,        #-- item.1.75
 "Velvet",                         "",                                 1,        #-- item.1.76
 "VpnDialogs",                         "",                                 1,        #-- item.1.77
 "WapService",                         "",                                 1,        #-- item.1.78
-"LGCalendarProvider",                         "Removing will break every calendar app",                                 0,        #-- item.1.79
+"LGCalendarProvider",                         "Activating will break every calendar app",                                 0,        #-- item.1.79
 "LGCalendar",                         "",                                 1,        #-- item.1.80
-"LGAlarmClock",                         "Removing will remove the alarm clock",                                 0,        #-- item.1.81
+"LGAlarmClock",                         "Activating will remove the alarm clock",                                 0,        #-- item.1.81
 "PrintSpooler",                         "",                                 1,        #-- item.1.82
 "BackupRestoreConfirmation",                         "",                                 1,        #-- item.1.83
 "GoogleBackupTransport",                         "",                                 1,        #-- item.1.84
@@ -209,7 +209,11 @@ textbox(
 "LG360Wallpaper",                         "",                                 1,        #-- item.1.98
 "LiveWallpapers_Cat",                         "",                                 1,        #-- item.1.99
 "LiveWallpapers_Kaleidoscope",                         "",                                 1,        #-- item.1.100
-"LGCalculator",                         "",                                 0        #-- item.1.101
+"LGCalculator",                         "",                                 0,        #-- item.1.101
+"LGContacts",                         "Activating will remove LG Dialer. Please install Google Phone in the next steps",                                 1,        #-- item.1.102
+"LGInCallUI",                         "Activating will remove LG Dialer. Please install Google Phone in the next steps",                                 1,        #-- item.1.103
+"LGFavoriteContactsWidget",                         "",                                 1,        #-- item.1.104
+"LGGallery",                         "",                                 1        #-- item.1.105
     );
 
         endif;
@@ -233,7 +237,7 @@ textbox(
   "custom_other.prop",
 
   "Select what other customization you want to apply:",                            "",                                    2,        #-- Group 1. key = "item.1"
-  "Set DPI to 540",                         "Smaller, Better looking UI",                                 1,        #-- item.1.1
+  "Set DPI to 540",                         "Smaller, Better looking UI",                                 0,        #-- item.1.1
   "Set LG adoptable Storage",                     "allows Apps to write to the SD-Card and to merge Storage",                         1        #-- item.1.2
   );
 
@@ -259,7 +263,10 @@ textbox(
 
         "Select the apps",                            "",                                    2,        #-- Group 1. key = "item.1"
         "NovaLauncher",                         "",                                 1,        #-- item.1.1
-        "Google Messenger",                     "",                         1        #-- item.1.2
+        "Google Messenger",                     "",                         1,        #-- item.1.2
+		"Google Phone",                     "",                         1,        #-- item.1.3
+		"Google Contacts",                     "",                         1,        #-- item.1.4
+		"Google Photos",                     "",                         1        #-- item.1.5
     );
 
 ini_set("text_next", "Install Now");
